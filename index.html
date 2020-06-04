@@ -12,14 +12,14 @@
   <div class="bg-gray-100 text-gray-800" x-data="{ selected: 'option-1' }">
     <nav class="bg-gray-300">
       <ul class="flex">
-        <li class="px-4 py-2" x-bind:class="{ 'bg-gray-100': selected === 'option-1' }">
-          <a href="#option-1" x-on:click="selected = 'option-1'">Option 1</a>
+        <li class="px-4 py-2" :class="{ 'bg-gray-100': selected === 'option-1' }">
+          <a href="#option-1" @click="selected = 'option-1'">Option 1</a>
         </li>
-        <li class="px-4 py-2" x-bind:class="{ 'bg-gray-100': selected === 'option-2' }">
-          <a href="#option-2" x-on:click="selected = 'option-2'">Option 2</a>
+        <li class="px-4 py-2" :class="{ 'bg-gray-100': selected === 'option-2' }">
+          <a href="#option-2" @click="selected = 'option-2'">Option 2</a>
         </li>
-        <li class="px-4 py-2" x-bind:class="{ 'bg-gray-100': selected === 'option-3' }">
-          <a href="#option-3" x-on:click="selected = 'option-3'">Option 3</a>
+        <li class="px-4 py-2" :class="{ 'bg-gray-100': selected === 'option-3' }">
+          <a href="#option-3" @click="selected = 'option-3'">Option 3</a>
         </li>
       </ul>
     </nav>
