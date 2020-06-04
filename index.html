@@ -24,7 +24,7 @@
       </ul>
     </nav>
 
-    <div x-show="selected === 'option-1'" class="p-4">
+    <div x-show.transition.in.opacity.duration.750ms="selected === 'option-1'" class="p-4">
       <h2 class="text-xl mb-4">Here, you have the content of <strong>Option 1</strong></h2>
       <p class="mb-2">Qui ipsorum lingua Celtae, nostra Galli appellantur. Quam diu etiam furor iste tuus nos eludet?
         Morbi fringilla
@@ -35,7 +35,7 @@
         vitiis, legem sancimus haerentia. Paullum deliquit, ponderibus modulisque suis ratio utitur.</p>
     </div>
 
-    <div x-show="selected === 'option-2'" class="p-4">
+    <div x-show.transition.in.opacity.duration.750ms="selected === 'option-2'" class="p-4">
       <h2 class="text-xl mb-4">Here, <strong>Option 2</strong> contents are shown</h2>
       <p class="mb-2">Qui ipsorum lingua Celtae, nostra Galli appellantur. Quam diu etiam furor iste tuus nos eludet?
         Morbi fringilla
@@ -46,7 +46,7 @@
         vitiis, legem sancimus haerentia. Paullum deliquit, ponderibus modulisque suis ratio utitur.</p>
     </div>
 
-    <div x-show="selected === 'option-3'" class="p-4">
+    <div x-show.transition.in.opacity.duration.750ms="selected === 'option-3'" class="p-4">
       <h2 class="text-xl mb-4">And here, only <strong>Option 3</strong> contents should be displayed</h2>
       <p>Qui ipsorum lingua Celtae, nostra Galli appellantur. Quam diu etiam furor iste tuus nos eludet? Morbi fringilla
         convallis sapien, id pulvinar odio volutpat.</p>
