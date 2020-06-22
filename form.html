@@ -1,0 +1,32 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alpine.js Demo</title>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+</head>
+
+<body>
+  <h1 class="text-center text-3xl font-bold mt-24 mb-6 uppercase">Contact</h1>
+  <form action="/contact" method="POST" class="w-64 mx-auto">
+    <div class="mb-4">
+      <label class="block mb-2">Name:</label>
+      <input type="text" name="name" class="border w-full p-1">
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-2">E-mail:</label>
+      <input type="email" name="email" class="border w-full p-1">
+    </div>
+
+    <div class="mb-4">
+      <label class="block mb-2">Message:</label>
+      <textarea name="message" class="border w-full p-1"></textarea>
+    </div>
+    <button class="bg-gray-700 hover:bg-gray-800 text-white w-full p-2">Submit</button>
+  </form>
+</body>
+
+</html>
