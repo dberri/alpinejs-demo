@@ -10,7 +10,7 @@
 
 <body>
   <h1 class="text-center text-3xl font-bold mt-24 mb-6 uppercase">Contact</h1>
-  <form action="/contact" method="POST" class="w-64 mx-auto" x-data="contactForm()">
+  <form action="/contact" method="POST" class="w-64 mx-auto" x-data="contactForm()" @submit.prevent="submitData">
     <div class="mb-4">
       <label class="block mb-2">Name:</label>
       <input type="text" name="name" class="border w-full p-1" x-model="formData.name">
@@ -25,7 +25,9 @@
       <label class="block mb-2">Message:</label>
       <textarea name="message" class="border w-full p-1" x-model="formData.message"></textarea>
     </div>
-    <button class="bg-gray-700 hover:bg-gray-800 text-white w-full p-2">Submit</button>
+    <button class="bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white w-full p-2 mb-4">Submit</button>
+
+    <p x-text="message"></p>
   </form>
 
   <script>
@@ -36,6 +38,25 @@
           email: '',
           message: ''
         },
+        message: '',
+
+        submitData() {
+          this.message = ''
+
+          fetch('/contact', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(this.formData)
+          })
+            .then(() => {
+              this.message = 'Form sucessfully submitted!'
+            })
+            .catch(() => {
+              this.message = 'Ooops! Something went wrong!'
+            })
+        }
       }
     }
   </script>
