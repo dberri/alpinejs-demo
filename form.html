@@ -6,6 +6,12 @@
   <title>Alpine.js Demo</title>
   <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+  <style>
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+  </style>
 </head>
 
 <body>
@@ -25,7 +31,8 @@
       <label class="block mb-2">Message:</label>
       <textarea name="message" class="border w-full p-1" x-model="formData.message"></textarea>
     </div>
-    <button class="bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white w-full p-2 mb-4">Submit</button>
+    <button class="bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white w-full p-2 mb-4" x-text="buttonLabel"
+      :disabled="loading"></button>
 
     <p x-text="message"></p>
   </form>
@@ -39,8 +46,12 @@
           message: ''
         },
         message: '',
+        loading: false,
+        buttonLabel: 'Submit',
 
         submitData() {
+          this.buttonLabel = 'Submitting...'
+          this.loading = true;
           this.message = ''
 
           fetch('/contact', {
@@ -55,6 +66,10 @@
             })
             .catch(() => {
               this.message = 'Ooops! Something went wrong!'
+            })
+            .finally(() => {
+              this.loading = false;
+              this.buttonLabel = 'Submit'
             })
         }
       }
